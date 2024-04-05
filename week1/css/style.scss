@@ -14,15 +14,19 @@
   background-color: #fff;
   border-radius: 0.5rem;
   width: 13.5rem;
-  height: 16rem;
+  height: 16.5rem;
+  padding: 0.2rem;
   img {
-    width: inherit;
-    height: inherit;
+    width: 90%;
+    height: 95%;
     max-height: 12.6rem;
     object-fit: contain;
   }
   i:hover {
     color: red;
+  }
+  span {
+    margin-top: 0.2rem;
   }
   @media screen and (min-width: 768px) and (max-width: 989px) {
     font-size: 20px;
@@ -54,10 +58,13 @@
   }
 }
 @mixin titleStyle {
-  margin-top: 4rem;
+  margin-top: 2rem;
   margin-bottom: 1rem;
   font-size: 1.68rem;
   font-weight: bold;
+}
+html {
+  scroll-behavior: smooth;
 }
 body {
   background-color: #f5f5f5;
@@ -87,7 +94,7 @@ main {
       background-color: #ffcc60;
       width: 8rem;
       height: 10rem;
-      border-radius: 1rem;
+      border-radius: 0.6rem;
       text-align: center;
       display: flex;
       flex-direction: column;
@@ -105,6 +112,7 @@ main {
         align-items: center;
         width: 6rem;
         height: 7rem;
+        border-radius: 0.6rem;
 
         li {
           width: inherit;
@@ -130,24 +138,31 @@ main {
 
     .slider {
       position: relative;
-      z-index: -1;
-      width: 90%;
+      // z-index: -1;
+      width: max-content;
       height: 13rem;
       margin-right: 2rem;
       display: flex;
-      animation: imageSlider 20s infinite linear;
+      flex-wrap: nowrap;
+      animation: imageSlider 30s infinite linear;
       gap: 0.3rem;
 
       div {
         width: 10rem;
         height: 10rem;
         background-color: #fff;
+        display: flex;
+        justify-content: center;
         img {
           width: inherit;
           height: inherit;
           object-fit: contain;
         }
       }
+    }
+    .empty {
+      width: 100dvw;
+      height: 3rem;
     }
     h2 {
       @include titleStyle();

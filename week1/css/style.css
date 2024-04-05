@@ -1,3 +1,7 @@
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background-color: #f5f5f5;
 }
@@ -29,7 +33,7 @@ main .nav-section nav {
   background-color: #ffcc60;
   width: 8rem;
   height: 10rem;
-  border-radius: 1rem;
+  border-radius: 0.6rem;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -47,6 +51,7 @@ main .nav-section nav ul {
   align-items: center;
   width: 6rem;
   height: 7rem;
+  border-radius: 0.6rem;
 }
 main .nav-section nav ul li {
   width: inherit;
@@ -69,26 +74,32 @@ main .main-section {
 }
 main .main-section .slider {
   position: relative;
-  z-index: -1;
-  width: 90%;
+  width: max-content;
   height: 13rem;
   margin-right: 2rem;
   display: flex;
-  animation: imageSlider 20s infinite linear;
+  flex-wrap: nowrap;
+  animation: imageSlider 30s infinite linear;
   gap: 0.3rem;
 }
 main .main-section .slider div {
   width: 10rem;
   height: 10rem;
   background-color: #fff;
+  display: flex;
+  justify-content: center;
 }
 main .main-section .slider div img {
   width: inherit;
   height: inherit;
   object-fit: contain;
 }
+main .main-section .empty {
+  width: 100dvw;
+  height: 3rem;
+}
 main .main-section h2 {
-  margin-top: 4rem;
+  margin-top: 2rem;
   margin-bottom: 1rem;
   font-size: 1.68rem;
   font-weight: bold;
@@ -111,16 +122,20 @@ main .main-section .section .product {
   background-color: #fff;
   border-radius: 0.5rem;
   width: 13.5rem;
-  height: 16rem;
+  height: 16.5rem;
+  padding: 0.2rem;
 }
 main .main-section .section .product img {
-  width: inherit;
-  height: inherit;
+  width: 90%;
+  height: 95%;
   max-height: 12.6rem;
   object-fit: contain;
 }
 main .main-section .section .product i:hover {
   color: red;
+}
+main .main-section .section .product span {
+  margin-top: 0.2rem;
 }
 @media screen and (min-width: 768px) and (max-width: 989px) {
   main .main-section .section .product {
