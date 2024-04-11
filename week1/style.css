@@ -59,21 +59,22 @@ main .todolist-section {
   align-items: flex-start;
   gap: 7rem;
 }
-.not-started {
+.not-started,
+.done {
   width: 35%;
   height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.not-started h2 {
+.not-started h2,
+.done h2 {
   font-size: 2.5rem;
 }
-.not-started .article-box {
+.not-started .article-box,
+.done .article-box {
   margin-top: 2rem;
   width: 100%;
-  display: flex;
-  flex-direction: column;
 }
 article {
   background-color: white;
@@ -95,22 +96,6 @@ article span {
 }
 article button i {
   font-size: 1.2rem;
-}
-.done {
-  width: 35%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.done h2 {
-  font-size: 2.5rem;
-}
-.done .article-box {
-  margin-top: 2rem;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
 }
 
 @keyframes rotateXAnimation {
