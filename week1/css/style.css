@@ -32,15 +32,12 @@ main .nav-section nav {
   margin-left: 2rem;
   background-color: #ffcc60;
   width: 8rem;
-  height: 10rem;
   border-radius: 0.6rem;
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-main .nav-section nav h2 {
-  margin-top: 0.5rem;
+  padding: 1rem 0;
 }
 main .nav-section nav ul {
   background-color: #fff;
@@ -50,12 +47,11 @@ main .nav-section nav ul {
   justify-content: space-between;
   align-items: center;
   width: 6rem;
-  height: 7rem;
   border-radius: 0.6rem;
 }
 main .nav-section nav ul li {
   width: inherit;
-  height: 25%;
+  padding: 0.3rem 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -109,6 +105,7 @@ main .main-section .section {
   flex-wrap: wrap;
   gap: 0.8rem;
   margin-right: 1rem;
+  scroll-margin-top: 6rem;
 }
 @media screen and (max-width: 892px) {
   main .main-section .section {
