@@ -27,7 +27,7 @@ main .nav-section {
   height: 100%;
   position: fixed;
 }
-main .nav-section nav {
+main .nav-section div {
   margin-top: 20rem;
   margin-left: 2rem;
   background-color: #ffcc60;
@@ -39,7 +39,7 @@ main .nav-section nav {
   align-items: center;
   padding: 1rem 0;
 }
-main .nav-section nav ul {
+main .nav-section div ul {
   background-color: #fff;
   margin-top: 1rem;
   display: flex;
@@ -49,14 +49,14 @@ main .nav-section nav ul {
   width: 6rem;
   border-radius: 0.6rem;
 }
-main .nav-section nav ul li {
+main .nav-section div ul li {
   width: inherit;
   padding: 0.3rem 0;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-main .nav-section nav ul li:hover {
+main .nav-section div ul li:hover {
   color: plum;
   background-color: #ffcc60;
   opacity: 0.8;
