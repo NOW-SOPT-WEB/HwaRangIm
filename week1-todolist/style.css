@@ -1,0 +1,114 @@
+html {
+  width: 100%;
+  height: 100%;
+  font-family: "Poor Story", system-ui;
+  background: rgb(124, 140, 222);
+  background: linear-gradient(
+    0deg,
+    rgba(124, 140, 222, 1) 0%,
+    rgba(250, 224, 31, 1) 100%
+  );
+  font-size: 16px;
+}
+header {
+  width: 100dvw;
+  height: 8rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+header .title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #7c8cde;
+}
+header .input-section {
+  margin-top: 1rem;
+}
+header .input-section input {
+  border: none;
+  border-radius: 6px;
+  width: 15rem;
+  height: 2rem;
+  padding: 0.3rem;
+}
+header .input-section input:focus {
+  outline: none !important;
+  border-color: #d6a8e9;
+}
+header .input-section button {
+  width: 4rem;
+  height: 2rem;
+  border-radius: 6px;
+  color: white;
+  background-color: gray;
+}
+main {
+  width: 100dvw;
+  height: 70dvh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+main .todolist-section {
+  width: 60%;
+  height: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 7rem;
+}
+.not-started,
+.done {
+  width: 35%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.not-started h2,
+.done h2 {
+  font-size: 2.5rem;
+}
+.not-started .article-box,
+.done .article-box {
+  margin-top: 2rem;
+  width: 100%;
+}
+article {
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 6px;
+  padding: 0.3rem;
+  width: 100%;
+  height: 3rem;
+  margin-top: 1rem;
+  animation: rotateXAnimation 4s linear infinite;
+}
+article span {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  font-weight: 700;
+}
+article button i {
+  font-size: 1.2rem;
+}
+
+@keyframes rotateXAnimation {
+  0% {
+    transform: rotateX(0deg);
+  }
+  25% {
+    transform: rotateX(180deg);
+  }
+  50% {
+    transform: rotateY(0deg);
+  }
+  75%,
+  100% {
+  }
+}
