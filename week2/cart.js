@@ -46,6 +46,16 @@ window.onload = function () {
       `;
     row.appendChild(deleteCell);
 
+    const deleteBtn = deleteCell.querySelector(".deleteBtn");
+
+    deleteBtn.addEventListener('click', () => {
+        const cartItems = JSON.parse(localStorage.getItem('cart'));
+        const updatedCart = cartItems.filter(cartItem => cartItem.id !== item.id)
+        localStorage.setItem('cart', JSON.stringify(updatedCart))
+
+        row.remove();
+    })
+
     // 테이블에 행 추가
     tbody.appendChild(row);
   });
