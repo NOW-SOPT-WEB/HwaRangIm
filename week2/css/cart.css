@@ -17,4 +17,45 @@ header i {
   font-size: 2rem;
 }
 
+main {
+  background-color: #fad991;
+  width: 100dvw;
+  height: 100dvh;
+  padding-top: 6rem;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+main table {
+  border-collapse: collapse;
+}
+main table td,
+main table th {
+  border: 1px solid black;
+  text-align: center;
+  vertical-align: middle;
+}
+main table thead {
+  background-color: #bf880f;
+  font-weight: bold;
+}
+main table thead .info {
+  width: 20rem;
+}
+main table thead th {
+  width: 10rem;
+  height: 3rem;
+}
+main table tbody img {
+  width: 2rem;
+  height: 2rem;
+}
+main table td {
+  width: 10rem;
+  height: 3rem;
+}
+main table .checkbox {
+  width: 5rem;
+}
+
 /*# sourceMappingURL=cart.css.map */

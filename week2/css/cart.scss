@@ -1,18 +1,63 @@
 header {
-    background-color: #ffcc60;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100vw;
-    height: 3rem;
-    padding: 0.5rem 0.8rem;
-    position: fixed;
-    z-index: 10;
-    top: 0;
-    h2 {
-      font-size: 1.5rem;
+  background-color: #ffcc60;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100vw;
+  height: 3rem;
+  padding: 0.5rem 0.8rem;
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  h2 {
+    font-size: 1.5rem;
+  }
+  i {
+    font-size: 2rem;
+  }
+}
+
+main {
+  background-color: #fad991;
+  width: 100dvw;
+  height: 100dvh;
+  padding-top: 6rem;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+
+  table {
+    border-collapse: collapse;
+    td,
+      th {
+        border: 1px solid black;
+        text-align: center;
+        vertical-align: middle;
+      }
+    thead {
+      background-color: #bf880f;
+      font-weight: bold;
+
+      .info {
+        width: 20rem;
+      }
+      th {
+        width: 10rem;
+        height: 3rem;
+      }
     }
-    i {
-      font-size: 2rem;
+    tbody {
+      img {
+        width: 2rem;
+        height: 2rem;
+      }
+    }
+    td {
+      width: 10rem;
+      height: 3rem;
+    }
+    .checkbox {
+      width: 5rem;
     }
   }
+}
