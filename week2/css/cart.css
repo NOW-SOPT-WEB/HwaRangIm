@@ -50,6 +50,14 @@ main table tbody img {
   width: 2rem;
   height: 2rem;
 }
+main table tbody .deleteBtn {
+  width: 3rem;
+  height: 2rem;
+  border-radius: 5px;
+  color: #860996;
+  background-color: #ffcc60;
+  font-weight: bold;
+}
 main table td {
   width: 10rem;
   height: 3rem;
