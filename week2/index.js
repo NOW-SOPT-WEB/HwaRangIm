@@ -136,3 +136,18 @@ const SHOPPING_LIST = [
     cart.push(product);
     localStorage.setItem("cart", JSON.stringify(cart));
   }
+
+  function toggleMenu() {
+    const menu = document.getElementById("menu");
+  
+    // 현재 메뉴의 위치 확인
+    const menuRight = parseInt(getComputedStyle(menu).right);
+    if (menuRight < 0) {
+      // 메뉴가 숨겨져 있을 때
+      menu.style.right = "0";
+    } else {
+      // 메뉴가 보여져 있을 때
+      menu.style.right = "-15rem";
+    }
+  }
+  

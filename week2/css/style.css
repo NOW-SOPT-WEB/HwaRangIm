@@ -94,10 +94,17 @@ main .nav-section div ul li {
   justify-content: center;
   align-items: center;
 }
+main .nav-section div ul li button {
+  width: 100%;
+  height: 100%;
+}
 main .nav-section div ul li:hover {
-  color: plum;
   background-color: #ffcc60;
   opacity: 0.8;
+}
+main .nav-section div ul li:hover button {
+  color: plum;
+  font-weight: bold;
 }
 main .main-section {
   width: 90%;
