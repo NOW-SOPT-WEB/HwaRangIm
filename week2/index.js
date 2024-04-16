@@ -114,12 +114,15 @@ const SHOPPING_LIST = [
           <p>${product.price.toLocaleString()}</p>
         `;
 
+        productElement.addEventListener("click", function () {
+            if (confirm("장바구니에 추가하시겠습니까?")) {
+              addToCart(product);
+            }
+          });
   
       section.appendChild(productElement);
     });
   }
-  
-
   
   function filterProducts(category) {
     const filteredProducts = SHOPPING_LIST.filter(
@@ -127,4 +130,9 @@ const SHOPPING_LIST = [
     );
     displayProducts(filteredProducts);
   }
-  
+
+  function addToCart(product) {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    cart.push(product);
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }
