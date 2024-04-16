@@ -9,10 +9,22 @@
   </head>
   <body>
     <header>
-      <i class="fa-solid fa-shop"></i>
+      <a href="index.html"><i class="fa-solid fa-shop"></i></a>
       <h2>화랑이의 위시리스트</h2>
-      <i class="fa-solid fa-bars"></i>
+      <button id="hamburgerBtn" onclick="toggleMenu()">
+        <i class="fa-solid fa-bars"></i>
+      </button>
     </header>
+    <div class="menu" id="menu">
+      <button class="close-btn" onclick="toggleMenu()">
+        <i class="fa-solid fa-arrow-right"></i>
+      </button>
+      <ul>
+        <li><a href="#">관심 상품 목록</a></li>
+        <li><a href="#">관리자 페이지</a></li>
+        <li><a href="cart.html">장바구니</a></li>
+      </ul>
+    </div>
     <main>
       <section class="nav-section">
         <div>
