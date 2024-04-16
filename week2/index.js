@@ -96,3 +96,35 @@ const SHOPPING_LIST = [
       category: "coding",
     },
   ];
+
+  window.onload = function () {
+    displayProducts(SHOPPING_LIST);
+  };
+  
+  function displayProducts(products) {
+    const section = document.getElementById("all");
+    section.innerHTML = "";
+    products.forEach((product) => {
+      const productElement = document.createElement("div");
+      productElement.classList.add("product");
+      productElement.innerHTML = `
+          <img src="${product.imgSrc}" alt="${product.alt}" />
+          <i class="fa-solid fa-heart"></i>
+          <p>${product.name}</p>
+          <p>${product.price.toLocaleString()}</p>
+        `;
+
+  
+      section.appendChild(productElement);
+    });
+  }
+  
+
+  
+  function filterProducts(category) {
+    const filteredProducts = SHOPPING_LIST.filter(
+      (product) => product.category === category || category === "all"
+    );
+    displayProducts(filteredProducts);
+  }
+  
