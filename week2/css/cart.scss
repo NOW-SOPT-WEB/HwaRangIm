@@ -41,16 +41,21 @@ main {
 
   table {
     border-collapse: collapse;
+    width: 55rem;
+    height: 13rem;
     td,
     th {
-      border: 1px solid black;
+      border: 1px solid purple;
       text-align: center;
       vertical-align: middle;
     }
     thead {
       background-color: #bf880f;
       font-weight: bold;
-
+      tr {
+        display: table;
+        width: 55rem;
+      }
       .info {
         width: 20rem;
       }
@@ -60,6 +65,15 @@ main {
       }
     }
     tbody {
+      background-color: rgba(255, 205, 96, 0.8);
+      border-bottom: 1px solid purple;
+      display: block;
+      max-height: 17rem;
+      overflow-y: auto;
+      tr {
+        display: table;
+        width: 55rem;
+      }
       img {
         width: 2rem;
         height: 2rem;

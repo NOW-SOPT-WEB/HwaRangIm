@@ -28,10 +28,12 @@ main {
 }
 main table {
   border-collapse: collapse;
+  width: 55rem;
+  height: 13rem;
 }
 main table td,
 main table th {
-  border: 1px solid black;
+  border: 1px solid purple;
   text-align: center;
   vertical-align: middle;
 }
@@ -39,12 +41,27 @@ main table thead {
   background-color: #bf880f;
   font-weight: bold;
 }
+main table thead tr {
+  display: table;
+  width: 55rem;
+}
 main table thead .info {
   width: 20rem;
 }
 main table thead th {
   width: 10rem;
   height: 3rem;
+}
+main table tbody {
+  background-color: rgba(255, 205, 96, 0.8);
+  border-bottom: 1px solid purple;
+  display: block;
+  max-height: 17rem;
+  overflow-y: auto;
+}
+main table tbody tr {
+  display: table;
+  width: 55rem;
 }
 main table tbody img {
   width: 2rem;
