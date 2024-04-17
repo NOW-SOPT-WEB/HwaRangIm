@@ -53,7 +53,7 @@ main table thead th {
   height: 3rem;
 }
 main table tbody {
-  background-color: rgba(255, 205, 96, 0.8);
+  background-color: rgba(255, 205, 96, 0.5);
   border-bottom: 1px solid purple;
   display: block;
   max-height: 17rem;
@@ -72,7 +72,7 @@ main table tbody .deleteBtn {
   height: 2rem;
   border-radius: 5px;
   color: #860996;
-  background-color: #ffcc60;
+  background-color: #f7ab05;
   font-weight: bold;
 }
 main table td {
