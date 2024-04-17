@@ -97,13 +97,13 @@ main {
     }
   }
   .modalDiv {
-    background-color: pink;
+    background-color: white;
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 20;
-    width: 20rem;
+    width: 25rem;
     display: none;
     .closeBtn {
       position: absolute;
@@ -113,10 +113,10 @@ main {
     }
     .itemListDiv {
       width: 90%;
-      background-color: aqua;
+      //   background-color: aqua;
       display: flex;
       justify-content: center;
-      margin: 2rem auto;
+      margin: 3rem auto;
       gap: 0.5rem;
       .itemUl {
         display: block;
@@ -135,6 +135,9 @@ main {
           }
         }
       }
+    }
+    .totalPrice {
+      margin-left: 1rem;
     }
     .finalCheckBuyBtn {
       @include buttonStyle();
