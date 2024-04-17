@@ -63,10 +63,70 @@ window.onload = function () {
   });
 };
 
+const buyBtn = document.querySelector(".buyBtn");
+
 function buyBtnClick() {
-    
+  //구매하기 버튼 비활성화를 통해 중복 제거
+  buyBtn.disabled = true;
+
+  const modalDiv = document.querySelector(".modalDiv");
+  modalDiv.style.display = "block";
+
+  const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+
+  const itemListDiv = document.querySelector(".itemListDiv");
+  const itemUl = document.querySelector(".itemUl");
+
+  //총 가격을 계산하기 위한 변수
+  let totalPrice = 0;
+
+  cartItems.forEach((item) => {
+    const itemLi = document.createElement("li");
+    itemLi.classList.add("itemLi");
+
+    // 상품 이미지 생성
+    const img = document.createElement("img");
+    img.src = item.imgSrc;
+    img.alt = item.alt;
+    itemLi.appendChild(img);
+
+    // 상품 정보 열(td) 생성
+    const name = document.createElement("div");
+    name.textContent = item.name;
+    itemLi.appendChild(name);
+
+    // 상품 가격 열(td) 생성
+    const price = document.createElement("div");
+    totalPrice += parseInt(item.price);
+    price.textContent = item.price.toLocaleString();
+    itemLi.appendChild(price);
+
+    itemUl.appendChild(itemLi);
+  });
+
+  //총 가격 값 추가
+  const totalPriceDiv = document.querySelector(".totalPrice");
+  totalPriceDiv.innerText = `총 금액 : ${totalPrice}`;
+
+  itemListDiv.appendChild(itemUl);
 }
 
+//홈으로 가는 버튼
 function goHome() {
   window.location.href = "index.html";
+}
+
+//모달을 닫는 버튼
+function modalClose() {
+  const modalDiv = document.querySelector(".modalDiv");
+  modalDiv.style.display = "none";
+
+  //모달이 닫히면 구매할 아이템들도 삭제되어야 함
+  const itemUl = document.querySelector(".itemUl");
+  while (itemUl.firstChild) {
+    itemUl.removeChild(itemUl.firstChild);
+  }
+
+  //구매하기 버튼 활성화
+  buyBtn.disabled = false;
 }

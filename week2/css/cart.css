@@ -85,5 +85,46 @@ main .btn-section .buyBtn {
 main .btn-section .homeBtn {
   background-color: beige;
 }
+main .modalDiv {
+  background-color: pink;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 20;
+  width: 20rem;
+  display: none;
+}
+main .modalDiv .closeBtn {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  font-size: 1rem;
+}
+main .modalDiv .itemListDiv {
+  width: 90%;
+  background-color: aqua;
+  display: flex;
+  justify-content: center;
+  margin: 2rem auto;
+  gap: 0.5rem;
+}
+main .modalDiv .itemListDiv .itemUl {
+  display: block;
+  width: 100%;
+}
+main .modalDiv .itemListDiv .itemUl .itemLi {
+  float: left;
+  width: 33.3%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.1rem;
+}
+main .modalDiv .itemListDiv .itemUl .itemLi img {
+  width: 4rem;
+  height: 4rem;
+}
 
 /*# sourceMappingURL=cart.css.map */
