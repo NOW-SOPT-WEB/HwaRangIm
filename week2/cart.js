@@ -130,3 +130,18 @@ function modalClose() {
   //구매하기 버튼 활성화
   buyBtn.disabled = false;
 }
+
+function finalBuyBtnClick() {
+  alert("주문 완료");
+  localStorage.removeItem("cart");
+
+  // 주문완료 후 장바구니 비우기
+  const tbody = document.querySelector("#cartTable tbody");
+  while (tbody.firstChild) {
+    tbody.removeChild(tbody.firstChild);
+  }
+
+
+  const modalDiv = document.querySelector(".modalDiv");
+  modalDiv.style.display = "none";
+}
