@@ -11,12 +11,12 @@
     <header>
       <a href="index.html"><i class="fa-solid fa-shop"></i></a>
       <h2>화랑이의 위시리스트</h2>
-      <button id="hamburgerBtn" onclick="toggleMenu()">
+      <button class="toggleBtn">
         <i class="fa-solid fa-bars"></i>
       </button>
     </header>
     <div class="menu" id="menu">
-      <button class="close-btn" onclick="toggleMenu()">
+      <button class="toggleBtn">
         <i class="fa-solid fa-arrow-right"></i>
       </button>
       <ul>
@@ -30,13 +30,13 @@
         <div>
           <h2>판매목록</h2>
           <ul class="nav-main">
-            <li><button onclick="filterProducts('all')">전체</button></li>
+            <li><button class="all">전체</button></li>
             <li>
-              <button onclick="filterProducts('health')">운동용품</button>
+              <button class="health">운동용품</button>
             </li>
-            <li><button onclick="filterProducts('clothes')">옷</button></li>
+            <li><button class="clothes">옷</button></li>
             <li>
-              <button onclick="filterProducts('coding')">개발용품</button>
+              <button class="coding">개발용품</button>
             </li>
           </ul>
         </div>
@@ -79,6 +79,6 @@
       src="https://kit.fontawesome.com/4e5b2f86bb.js"
       crossorigin="anonymous"
     ></script>
-    <script src="index.js"></script>
+    <script type="module" src="index.js"></script>
   </body>
 </html>
