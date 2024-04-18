@@ -76,6 +76,7 @@ function handleDeleteButtonClick(deleteBtn, item, row, cartItems) {
 }
 
 const buyBtn = document.querySelector(".buyBtn");
+buyBtn.addEventListener("click", buyBtnClick);
 
 // 장바구니 페이지 구매하기 버튼
 function buyBtnClick() {
@@ -126,11 +127,15 @@ function buyBtnClick() {
   itemListDiv.appendChild(itemUl);
 }
 
+const goHomeBtn = document.querySelector(".homeBtn");
+goHomeBtn.addEventListener("click", goHome);
 //홈으로 가는 버튼
 function goHome() {
   window.location.href = "index.html";
 }
 
+const modalCloseBtn = document.querySelector(".closeBtn");
+modalCloseBtn.addEventListener("click", modalClose);
 //모달을 닫는 버튼
 function modalClose() {
   const modalDiv = document.querySelector(".modalDiv");
@@ -145,6 +150,9 @@ function modalClose() {
   //구매하기 버튼 활성화
   buyBtn.disabled = false;
 }
+
+const finalCheckBuyBtn = document.querySelector(".finalCheckBuyBtn");
+finalCheckBuyBtn.addEventListener("click", finalBuyBtnClick);
 
 //모달 내 최종 주문 버튼
 function finalBuyBtnClick() {
