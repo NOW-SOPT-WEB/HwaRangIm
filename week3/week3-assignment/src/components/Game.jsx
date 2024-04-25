@@ -15,6 +15,8 @@ const images = [img1, img2, img3, img4, img5, img6, img7, img8, img9];
 
 export default function Game({ level }) {
   const [cards, setCards] = useState([]);
+  const [selectedCard, setSelectedCard] = useState(null);
+  const [matchedScore, setMatchedScore] = useState(0);
   const [totalPairs, setTotalPairs] = useState(5);
 
   useEffect(() => {
@@ -24,6 +26,12 @@ export default function Game({ level }) {
   useEffect(() => {
     setCards(generateCards());
   }, [totalPairs]);
+
+  useEffect(() => {
+    if (matchedScore === totalPairs) {
+      console.log("finish");
+    }
+  }, [matchedScore]);
 
   const calculateTotalPairs = (level) => {
     switch (level) {
@@ -60,12 +68,50 @@ export default function Game({ level }) {
     return shuffledcards;
   };
 
-  const handleCardClick = (id) => {};
-
-  console.log(cards);
+  const handleCardClick = (id) => {
+    const selected = cards.find((card) => card.id === id);
+    if (!selected.isOpen && !selected.isMatched) {
+      //첫번째 카드 선택
+      if (selectedCard === null) {
+        setSelectedCard(selected);
+        const updatedCards = cards.map((card) =>
+          card.id === id ? { ...card, isOpen: true } : card
+        );
+        setCards(updatedCards);
+      }
+      //두번째 카드 선택
+      else {
+        const updatedCards = cards.map((card) =>
+          card.id === id ? { ...card, isOpen: true } : card
+        );
+        setCards(updatedCards);
+        if (selectedCard.image === selected.image) {
+          setTimeout(() => {
+            const matchedCards = updatedCards.map((card) =>
+              card.image === selected.image
+                ? { ...card, isMatched: true }
+                : card
+            );
+            setCards(matchedCards);
+            setSelectedCard(null);
+            setMatchedScore((prev) => prev + 1);
+          }, 500);
+        } else {
+          setTimeout(() => {
+            const resetCards = updatedCards.map((card) =>
+              card.isOpen ? { ...card, isOpen: false } : card
+            );
+            setCards(resetCards);
+            setSelectedCard(null);
+          }, 500);
+        }
+      }
+    }
+  };
 
   return (
     <GameWrapper>
+      <ScoreWrapper>{`${matchedScore} / ${totalPairs}`}</ScoreWrapper>
       {cards.map((card) => (
         <Card
           key={card.id}
@@ -85,4 +131,13 @@ const GameWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+`;
+
+const ScoreWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  width: 100dvw;
+  padding: 2rem;
+  font-size: 3rem;
+  color: ${({ theme }) => theme.colors.Pink};
 `;
