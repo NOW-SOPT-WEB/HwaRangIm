@@ -21,6 +21,7 @@ function displayProducts(products) {
       if (confirm("장바구니에 추가하시겠습니까?")) {
         addToCart(product);
       }
+      return;
     });
 
     section.appendChild(productElement);
@@ -64,3 +65,16 @@ function toggleMenu() {
     menu.style.right = "-15rem";
   }
 }
+
+const hamburgerMenuUl = document.querySelector(".hamburgerMenuUl");
+const menuItems = [
+  { text: "관심 상품 목록", link: "#" },
+  { text: "관리자 페이지", link: "#" },
+  { text: "장바구니", link: "cart.html" },
+];
+
+menuItems.forEach((item) => {
+  hamburgerMenuUl.innerHTML += `
+    <li><a href="${item.link}">${item.text}</a></li>
+  `;
+});
