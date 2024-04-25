@@ -31,7 +31,7 @@ function displayProducts(products) {
 const navBtn = document.querySelectorAll(".nav-main li button");
 navBtn.forEach((btn) => {
   btn.addEventListener("click", (e) => {
-    filterProducts(e.target.classList[0]);
+    filterProducts(e.target.getAttribute("class"));
   });
 });
 
