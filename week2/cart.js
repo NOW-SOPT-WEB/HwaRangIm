@@ -1,3 +1,21 @@
+import { MESSAGES } from "./js/messages.js";
+
+function createLogoElement() {
+  return `
+    <a href="index.html">
+      <i class="fa-solid fa-shop"></i>
+    </a>
+    <h2>장바구니 페이지</h2>
+      <button id="hamburgerBtn">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+  `;
+}
+
+const logoHTML = createLogoElement();
+const header = document.querySelector("header");
+header.innerHTML += logoHTML;
+
 function renderCartItems() {
   // 로컬 스토리지에서 장바구니 데이터 가져오기
   const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
@@ -125,7 +143,7 @@ finalCheckBuyBtn.addEventListener("click", finalBuyBtnClick);
 
 //모달 내 최종 주문 버튼
 function finalBuyBtnClick() {
-  alert("주문 완료");
+  alert(MESSAGES.ORDER_COMPLETE_MESSAGE);
   // 장바구니 데이터 가져오기
   let cartItems = JSON.parse(localStorage.getItem("cart")) || [];
 

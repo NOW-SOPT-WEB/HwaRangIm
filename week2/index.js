@@ -1,4 +1,5 @@
 import { SHOPPING_LIST } from "./js/constants.js";
+import { MESSAGES } from "./js/messages.js";
 
 window.onload = function () {
   displayProducts(SHOPPING_LIST);
@@ -18,7 +19,7 @@ function displayProducts(products) {
         `;
 
     productElement.addEventListener("click", function () {
-      if (confirm("장바구니에 추가하시겠습니까?")) {
+      if (confirm(MESSAGES.ADD_CART_MESSAGE)) {
         addToCart(product);
       }
       return;
