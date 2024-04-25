@@ -1,5 +1,6 @@
 import { useState } from "react";
 import styled from "styled-components";
+import Game from "./Game";
 
 export default function CardGame() {
   const levels = ["easy", "normal", "hard"];
@@ -26,6 +27,7 @@ export default function CardGame() {
         </LevelSelector>
         <ResetButton>Reset</ResetButton>
       </Header>
+      <Game level={selectedLevel}/>
     </CardGameWrapper>
   );
 }
