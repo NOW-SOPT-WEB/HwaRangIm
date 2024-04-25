@@ -4,6 +4,7 @@ const colors = {
   Pink: "#d20062",
   Violet: "#d6589f",
   LightPurple: "#d895da",
+  White: "#fff",
 };
 
 // const fonts = {

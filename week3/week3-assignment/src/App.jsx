@@ -1,7 +1,8 @@
 import "./App.css";
+import CardGame from "./components/CardGame";
 
 function App() {
-  return <div>hello world</div>;
+  return <CardGame />;
 }
 
 export default App;
