@@ -9,57 +9,27 @@ function renderCartItems() {
   // 장바구니 데이터를 테이블에 추가
   cartItems.forEach((item) => {
     // 새로운 행(tr) 요소 생성
-    const row = document.createElement("tr");
+    const row = `
+      <tr>
+        <td class="checkbox"><input type="checkbox" ${
+          item.isChecked ? "checked" : ""
+        }></td>
+        <td><img src="${item.imgSrc}" alt="${item.alt}"></td>
+        <td>${item.name}</td>
+        <td>${item.price.toLocaleString()}</td>
+        <td>${item.category}</td>
+        <td><button class="deleteBtn">삭제</button></td>
+      </tr>
+    `;
 
-    // 체크박스 열(td) 생성
-    const checkboxCell = document.createElement("td");
-    checkboxCell.classList.add("checkbox");
-    const checkboxInput = document.createElement("input");
-    checkboxInput.type = "checkbox";
-    checkboxInput.checked = item.isChecked || false;
-    checkboxInput.addEventListener("change", () => {
-      item.isChecked = checkboxInput.checked;
-      localStorage.setItem("cart", JSON.stringify(cartItems));
+    tbody.innerHTML += row;
+
+    const deleteBtns = document.querySelectorAll(".deleteBtn");
+    deleteBtns.forEach((deleteBtn, i) => {
+      deleteBtn.addEventListener("click", () =>
+        handleDeleteButtonClick(i, cartItems)
+      );
     });
-    checkboxCell.appendChild(checkboxInput);
-    row.appendChild(checkboxCell);
-
-    // 상품 이미지 열(td) 생성
-    const imgCell = document.createElement("td");
-    const img = document.createElement("img");
-    img.src = item.imgSrc;
-    img.alt = item.alt;
-    imgCell.appendChild(img);
-    row.appendChild(imgCell);
-
-    // 상품 정보 열(td) 생성
-    const nameCell = document.createElement("td");
-    nameCell.textContent = item.name;
-    row.appendChild(nameCell);
-
-    // 상품 가격 열(td) 생성
-    const priceCell = document.createElement("td");
-    priceCell.textContent = item.price.toLocaleString();
-    row.appendChild(priceCell);
-
-    // 상품 카테고리 열(td) 생성
-    const categoryCell = document.createElement("td");
-    categoryCell.textContent = item.category;
-    row.appendChild(categoryCell);
-
-    // 삭제 버튼 열(td) 생성
-    const deleteCell = document.createElement("td");
-    deleteCell.innerHTML = `
-        <button class="deleteBtn">삭제</button>
-      `;
-    row.appendChild(deleteCell);
-
-    const deleteBtn = deleteCell.querySelector(".deleteBtn");
-
-    handleDeleteButtonClick(deleteBtn, item, row, cartItems);
-
-    // 테이블에 행 추가
-    tbody.appendChild(row);
   });
 }
 
@@ -67,12 +37,11 @@ window.onload = function () {
   renderCartItems();
 };
 
-function handleDeleteButtonClick(deleteBtn, item, row, cartItems) {
-  deleteBtn.addEventListener("click", () => {
-    const updatedCart = cartItems.filter((cartItem) => cartItem.id !== item.id);
-    localStorage.setItem("cart", JSON.stringify(updatedCart));
-    row.remove();
-  });
+function handleDeleteButtonClick(index, cartItems) {
+  const updatedCart = cartItems.filter((item, i) => i !== index);
+  localStorage.setItem("cart", JSON.stringify(updatedCart));
+
+  renderCartItems();
 }
 
 const buyBtn = document.querySelector(".buyBtn");
