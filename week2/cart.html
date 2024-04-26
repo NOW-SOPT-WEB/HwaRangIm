@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" type="text/css" href="css/cart.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <header></header>
+    <main>
+      <table id="cartTable">
+        <thead id="tableHead">
+          <tr>
+            <th class="checkbox">
+              <input type="checkbox" />
+            </th>
+            <th colspan="2" class="info">상품정보</th>
+            <th>상품 금액</th>
+            <th>카테고리</th>
+            <th>비고</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+      <section class="btn-section">
+        <button class="buyBtn">구매하기</button>
+        <button class="homeBtn">홈으로</button>
+      </section>
+      <div class="modalDiv">
+        <button class="closeBtn">X</button>
+        <div class="itemListDiv">
+          <ul class="itemUl"></ul>
+        </div>
+        <div class="totalPrice"></div>
+        <button class="finalCheckBuyBtn">구매하기</button>
+      </div>
+    </main>
+    <script
+      src="https://kit.fontawesome.com/4e5b2f86bb.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="cart.js" type="module"></script>
+  </body>
+</html>

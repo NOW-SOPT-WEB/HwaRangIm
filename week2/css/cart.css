@@ -1,0 +1,159 @@
+header {
+  background-color: #ffcc60;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100vw;
+  height: 3rem;
+  padding: 0.5rem 0.8rem;
+  position: fixed;
+  z-index: 10;
+  top: 0;
+}
+header h2 {
+  font-size: 1.5rem;
+}
+header i {
+  font-size: 2rem;
+}
+
+main {
+  background-color: #fad991;
+  width: 100dvw;
+  height: 100dvh;
+  padding-top: 6rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+main table {
+  border-collapse: collapse;
+  width: 55rem;
+  height: 13rem;
+}
+main table td,
+main table th {
+  border: 1px solid purple;
+  text-align: center;
+  vertical-align: middle;
+}
+main table thead {
+  background-color: #bf880f;
+  font-weight: bold;
+}
+main table thead tr {
+  display: table;
+  width: 55rem;
+}
+main table thead .info {
+  width: 20rem;
+}
+main table thead th {
+  width: 10rem;
+  height: 3rem;
+}
+main table tbody {
+  background-color: rgba(255, 205, 96, 0.5);
+  border-bottom: 1px solid purple;
+  display: block;
+  max-height: 17rem;
+  overflow-y: auto;
+}
+main table tbody tr {
+  display: table;
+  width: 55rem;
+}
+main table tbody img {
+  width: 2rem;
+  height: 2rem;
+}
+main table tbody .deleteBtn {
+  width: 3rem;
+  height: 2rem;
+  border-radius: 5px;
+  color: #860996;
+  background-color: #f7ab05;
+  font-weight: bold;
+}
+main table td {
+  width: 10rem;
+  height: 3rem;
+}
+main table .checkbox {
+  width: 5rem;
+}
+main .btn-section {
+  margin-top: 8rem;
+  width: 9rem;
+  display: flex;
+  justify-content: space-between;
+}
+main .btn-section button {
+  font-weight: bold;
+  width: 4rem;
+  height: 2rem;
+  border-radius: 5px;
+  color: yellow;
+  box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+}
+main .btn-section .buyBtn {
+  background-color: pink;
+}
+main .btn-section .homeBtn {
+  background-color: beige;
+}
+main .modalDiv {
+  background-color: white;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 20;
+  width: 25rem;
+  display: none;
+}
+main .modalDiv .closeBtn {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  font-size: 1rem;
+}
+main .modalDiv .itemListDiv {
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  margin: 3rem auto;
+  gap: 0.5rem;
+}
+main .modalDiv .itemListDiv .itemUl {
+  display: block;
+  width: 100%;
+}
+main .modalDiv .itemListDiv .itemUl .itemLi {
+  float: left;
+  width: 33.3%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.1rem;
+}
+main .modalDiv .itemListDiv .itemUl .itemLi img {
+  width: 4rem;
+  height: 4rem;
+}
+main .modalDiv .totalPrice {
+  margin-left: 1rem;
+}
+main .modalDiv .finalCheckBuyBtn {
+  font-weight: bold;
+  width: 4rem;
+  height: 2rem;
+  border-radius: 5px;
+  color: yellow;
+  box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+  display: block;
+  margin: 2rem auto;
+}
+
+/*# sourceMappingURL=cart.css.map */
