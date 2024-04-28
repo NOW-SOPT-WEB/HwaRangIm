@@ -1,15 +1,16 @@
 import styled from "styled-components";
-import img1 from "../assets/acne-sneakers.png";
-import img2 from "../assets/dries-loafer.png";
-import img3 from "../assets/grds-derby.png";
-import img4 from "../assets/grds-slider.png";
-import img5 from "../assets/kiko-shoes.png";
-import img6 from "../assets/magliano-upower.png";
-import img7 from "../assets/roa-loafer.png";
-import img8 from "../assets/bottega-boots.png";
-import img9 from "../assets/toga-loafer.png";
+import img1 from "../assets/images/acne-sneakers.png";
+import img2 from "../assets/images/dries-loafer.png";
+import img3 from "../assets/images/grds-derby.png";
+import img4 from "../assets/images/grds-slider.png";
+import img5 from "../assets/images/kiko-shoes.png";
+import img6 from "../assets/images/magliano-upower.png";
+import img7 from "../assets/images/roa-loafer.png";
+import img8 from "../assets/images/bottega-boots.png";
+import img9 from "../assets/images/toga-loafer.png";
 import { useEffect, useState } from "react";
 import Card from "./Card";
+import { CARD_LIST } from "../constants/card";
 
 const images = [img1, img2, img3, img4, img5, img6, img7, img8, img9];
 
@@ -59,9 +60,11 @@ export default function Game({
 
   const generateCards = () => {
     //이미지 9개중 랜덤으로 totalPairs만큼 가져옴
-    const selectedImages = images
-      .sort((a, b) => 0.5 - Math.random())
-      .slice(0, totalPairs);
+    const selectedImages = CARD_LIST.sort((a, b) => 0.5 - Math.random()).slice(
+      0,
+      totalPairs
+    );
+    console.log(selectedImages);
 
     //카드 두배로 늘리고 랜덤정렬
     let shuffledcards = [...selectedImages, ...selectedImages].sort(
@@ -71,11 +74,12 @@ export default function Game({
     //랜덤정렬된 카드마다 객체로 만들어서 속성 추가
     shuffledcards = shuffledcards.map((image, index) => ({
       id: index,
-      image,
+      imgSrc: image.imgSrc,
+      imgAlt: image.imgAlt,
       isOpen: false,
       isMatched: false,
     }));
-
+    console.log(shuffledcards);
     return shuffledcards;
   };
 
@@ -96,10 +100,10 @@ export default function Game({
           card.id === id ? { ...card, isOpen: true } : card
         );
         setCards(updatedCards);
-        if (selectedCard.image === selected.image) {
+        if (selectedCard.imgSrc === selected.imgSrc) {
           setTimeout(() => {
             const matchedCards = updatedCards.map((card) =>
-              card.image === selected.image
+              card.imgSrc === selected.imgSrc
                 ? { ...card, isMatched: true }
                 : card
             );
@@ -126,7 +130,8 @@ export default function Game({
       {cards.map((card) => (
         <Card
           key={card.id}
-          image={card.image}
+          imgSrc={card.imgSrc}
+          imgAlt={card.imgAlt}
           isOpen={card.isOpen}
           isMatched={card.isMatched}
           onClick={() => handleCardClick(card.id)}

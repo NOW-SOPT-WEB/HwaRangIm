@@ -1,12 +1,11 @@
-import { useState } from "react";
 import styled from "styled-components";
 
-export default function Card({ image, isOpen, isMatched, onClick }) {
+export default function Card({ imgSrc, imgAlt, isOpen, isMatched, onClick }) {
   return (
     <CardWrapper onClick={onClick} isOpen={isOpen} isMatched={isMatched}>
       <CardBack />
       <CardFront>
-        <img src={image} alt="card" />
+        <img src={imgSrc} alt={imgAlt} />
       </CardFront>
     </CardWrapper>
   );

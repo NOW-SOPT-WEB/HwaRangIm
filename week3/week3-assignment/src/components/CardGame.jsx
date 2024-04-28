@@ -58,7 +58,7 @@ export default function CardGame() {
 const CardGameWrapper = styled.div`
   background-color: ${({ theme }) => theme.colors.MainBack};
   width: 100dvw;
-  height: 100dvh;
+  min-height: 100dvh;
 `;
 
 const Header = styled.header`
