@@ -1,0 +1,8 @@
+@font-face {
+  font-family: "sunflower";
+  src: url(../public/fonts/Sunflower-Medium.ttf);
+}
+
+:root {
+  --font-sunflower: "sunflower";
+}

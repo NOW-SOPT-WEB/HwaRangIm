@@ -1,3 +1,5 @@
+import { css } from "styled-components";
+
 const colors = {
   MainBack: "#e8f2fa",
   SkyBlue: "#c4e4ff",
@@ -6,10 +8,6 @@ const colors = {
   LightPurple: "#d895da",
   White: "#fff",
 };
-
-// const fonts = {
-
-// }
 
 const theme = {
   colors,

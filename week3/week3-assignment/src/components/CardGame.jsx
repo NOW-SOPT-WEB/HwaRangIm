@@ -72,8 +72,9 @@ const Header = styled.header`
 `;
 
 const Title = styled.h1`
-  font-size: 4rem;
   color: ${({ theme }) => theme.colors.White};
+  font-family: var(--font-sunflower);
+  font-size: 4rem;
 `;
 
 const LevelSelector = styled.div`
@@ -88,6 +89,8 @@ const LevelButton = styled.button`
   width: 10rem;
   height: 4rem;
   border-radius: 5px;
+  font-family: var(--font-sunflower);
+  font-size: 2rem;
 `;
 
 const ResetButton = styled.button`
@@ -99,8 +102,8 @@ const ResetButton = styled.button`
   width: 8rem;
   height: 5rem;
   border-radius: 5px;
-  font-size: 2rem;
-  font-weight: bold;
+  font-family: var(--font-sunflower);
+  font-size: 2.5rem;
 `;
 
 const ModalBackground = styled.div`
