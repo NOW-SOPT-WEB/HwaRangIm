@@ -13,7 +13,12 @@ import Card from "./Card";
 
 const images = [img1, img2, img3, img4, img5, img6, img7, img8, img9];
 
-export default function Game({ level }) {
+export default function Game({
+  level,
+  handleFinish,
+  resetClicked,
+  afterCardReset,
+}) {
   const [cards, setCards] = useState([]);
   const [selectedCard, setSelectedCard] = useState(null);
   const [matchedScore, setMatchedScore] = useState(0);
@@ -29,9 +34,15 @@ export default function Game({ level }) {
 
   useEffect(() => {
     if (matchedScore === totalPairs) {
-      console.log("finish");
+      handleFinish();
     }
   }, [matchedScore]);
+
+  useEffect(() => {
+    setCards(generateCards());
+    setMatchedScore(0);
+    afterCardReset();
+  }, [resetClicked]);
 
   const calculateTotalPairs = (level) => {
     switch (level) {

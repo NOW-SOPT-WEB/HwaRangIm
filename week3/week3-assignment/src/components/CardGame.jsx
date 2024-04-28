@@ -1,16 +1,34 @@
 import { useState } from "react";
 import styled from "styled-components";
 import Game from "./Game";
+import Modal from "./Modal";
 
 export default function CardGame() {
   const levels = ["easy", "normal", "hard"];
   const [selectedLevel, setSelectedLevel] = useState("easy");
+  const [isFinished, setIsFinished] = useState(false);
+  const [resetClicked, setResetClicked] = useState(false);
 
   const handleLevelBtnClick = (e) => {
     setSelectedLevel(e.target.value);
   };
+  const handleFinish = () => {
+    setIsFinished(true);
+  };
+  const handleResetClick = () => {
+    setResetClicked(true);
+    setIsFinished(false);
+  };
+  const afterCardReset = () => {
+    setResetClicked(false);
+  };
   return (
     <CardGameWrapper>
+      {isFinished && (
+        <ModalBackground>
+          <Modal onClick={handleResetClick} />
+        </ModalBackground>
+      )}
       <Header>
         <Title>신발 그림 맞추기</Title>
         <LevelSelector>
@@ -25,9 +43,14 @@ export default function CardGame() {
             </LevelButton>
           ))}
         </LevelSelector>
-        <ResetButton>Reset</ResetButton>
+        <ResetButton onClick={handleResetClick}>Reset</ResetButton>
       </Header>
-      <Game level={selectedLevel}/>
+      <Game
+        level={selectedLevel}
+        handleFinish={handleFinish}
+        resetClicked={resetClicked}
+        afterCardReset={afterCardReset}
+      />
     </CardGameWrapper>
   );
 }
@@ -78,4 +101,14 @@ const ResetButton = styled.button`
   border-radius: 5px;
   font-size: 2rem;
   font-weight: bold;
+`;
+
+const ModalBackground = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 5;
 `;
