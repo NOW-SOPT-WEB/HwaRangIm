@@ -1,17 +1,6 @@
 import styled from "styled-components";
 
-export default function Card({ imgSrc, imgAlt, isOpen, isMatched, onClick }) {
-  return (
-    <CardWrapper onClick={onClick} isOpen={isOpen} isMatched={isMatched}>
-      <CardBack />
-      <CardFront>
-        <img src={imgSrc} alt={imgAlt} />
-      </CardFront>
-    </CardWrapper>
-  );
-}
-
-const CardWrapper = styled.div`
+export const CardWrapper = styled.div`
   position: relative;
   width: 20rem;
   height: 25rem;
@@ -22,8 +11,7 @@ const CardWrapper = styled.div`
   transform: ${({ isOpen, isMatched }) =>
     isOpen || isMatched ? "rotateY(180deg)" : "rotateY(0deg)"};
 `;
-
-const CardBack = styled.div`
+export const CardBack = styled.div`
   position: absolute;
   width: 100%;
   height: 100%;
@@ -31,7 +19,7 @@ const CardBack = styled.div`
   background-color: gray;
 `;
 
-const CardFront = styled.div`
+export const CardFront = styled.div`
   position: absolute;
   width: 100%;
   height: 100%;

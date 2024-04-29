@@ -1,7 +1,15 @@
 import { useState } from "react";
-import styled from "styled-components";
-import Game from "./Game";
-import Modal from "./Modal";
+import {
+  CardGameWrapper,
+  Header,
+  LevelButton,
+  LevelSelector,
+  ModalBackground,
+  ResetButton,
+  Title,
+} from "./CardGame.styled";
+import Game from "../Game/Game";
+import Modal from "../Modal/Modal";
 
 export default function CardGame() {
   const levels = ["easy", "normal", "hard"];
@@ -54,64 +62,3 @@ export default function CardGame() {
     </CardGameWrapper>
   );
 }
-
-const CardGameWrapper = styled.div`
-  background-color: ${({ theme }) => theme.colors.MainBack};
-  width: 100dvw;
-  min-height: 100dvh;
-`;
-
-const Header = styled.header`
-  background-color: ${({ theme }) => theme.colors.SkyBlue};
-  width: 100dvw;
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2rem;
-`;
-
-const Title = styled.h1`
-  color: ${({ theme }) => theme.colors.White};
-  font-family: var(--font-sunflower);
-  font-size: 4rem;
-`;
-
-const LevelSelector = styled.div`
-  display: flex;
-  gap: 1rem;
-`;
-
-const LevelButton = styled.button`
-  background-color: ${({ value, selectedlevel, theme }) =>
-    value === selectedlevel ? theme.colors.LightPurple : theme.colors.Violet};
-  color: ${({ theme }) => theme.colors.White};
-  width: 10rem;
-  height: 4rem;
-  border-radius: 5px;
-  font-family: var(--font-sunflower);
-  font-size: 2rem;
-`;
-
-const ResetButton = styled.button`
-  background-color: ${({ theme }) => theme.colors.Pink};
-  color: white;
-  position: fixed;
-  top: 1rem;
-  right: 1rem;
-  width: 8rem;
-  height: 5rem;
-  border-radius: 5px;
-  font-family: var(--font-sunflower);
-  font-size: 2.5rem;
-`;
-
-const ModalBackground = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 5;
-`;

@@ -1,5 +1,3 @@
-import { css } from "styled-components";
-
 const colors = {
   MainBack: "#e8f2fa",
   SkyBlue: "#c4e4ff",

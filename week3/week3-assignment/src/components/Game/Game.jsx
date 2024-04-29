@@ -1,7 +1,7 @@
-import styled from "styled-components";
 import { useEffect, useState } from "react";
-import Card from "./Card";
-import { CARD_LIST } from "../constants/card";
+import { CARD_LIST } from "../../constants/card";
+import Card from "../Card/Card";
+import { GameWrapper, ScoreWrapper } from "./Game.styled";
 
 export default function Game({
   level,
@@ -128,20 +128,3 @@ export default function Game({
     </GameWrapper>
   );
 }
-
-const GameWrapper = styled.div`
-  width: 90%;
-  margin: 0 auto;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-`;
-
-const ScoreWrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  width: 100dvw;
-  padding: 2rem;
-  font-size: 3rem;
-  color: ${({ theme }) => theme.colors.Pink};
-`;
