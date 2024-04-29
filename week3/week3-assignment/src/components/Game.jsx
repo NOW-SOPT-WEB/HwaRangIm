@@ -1,18 +1,7 @@
 import styled from "styled-components";
-import img1 from "../assets/images/acne-sneakers.png";
-import img2 from "../assets/images/dries-loafer.png";
-import img3 from "../assets/images/grds-derby.png";
-import img4 from "../assets/images/grds-slider.png";
-import img5 from "../assets/images/kiko-shoes.png";
-import img6 from "../assets/images/magliano-upower.png";
-import img7 from "../assets/images/roa-loafer.png";
-import img8 from "../assets/images/bottega-boots.png";
-import img9 from "../assets/images/toga-loafer.png";
 import { useEffect, useState } from "react";
 import Card from "./Card";
 import { CARD_LIST } from "../constants/card";
-
-const images = [img1, img2, img3, img4, img5, img6, img7, img8, img9];
 
 export default function Game({
   level,
@@ -27,6 +16,7 @@ export default function Game({
 
   useEffect(() => {
     setTotalPairs(calculateTotalPairs(level));
+    setMatchedScore(0);
   }, [level]);
 
   useEffect(() => {
@@ -64,7 +54,6 @@ export default function Game({
       0,
       totalPairs
     );
-    console.log(selectedImages);
 
     //카드 두배로 늘리고 랜덤정렬
     let shuffledcards = [...selectedImages, ...selectedImages].sort(
@@ -79,7 +68,6 @@ export default function Game({
       isOpen: false,
       isMatched: false,
     }));
-    console.log(shuffledcards);
     return shuffledcards;
   };
 
