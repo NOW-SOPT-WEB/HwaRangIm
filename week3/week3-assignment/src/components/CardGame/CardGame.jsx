@@ -1,15 +1,8 @@
 import { useState } from "react";
-import {
-  CardGameWrapper,
-  Header,
-  LevelButton,
-  LevelSelector,
-  ModalBackground,
-  ResetButton,
-  Title,
-} from "./CardGame.styled";
+import { CardGameWrapper, ModalBackground } from "./CardGame.styled";
 import Game from "../Game/Game";
 import Modal from "../Modal/Modal";
+import Header from "../Header/Header";
 
 export default function CardGame() {
   const levels = ["easy", "normal", "hard"];
@@ -37,22 +30,12 @@ export default function CardGame() {
           <Modal onClick={handleResetClick} />
         </ModalBackground>
       )}
-      <Header>
-        <Title>신발 그림 맞추기</Title>
-        <LevelSelector>
-          {levels.map((level, i) => (
-            <LevelButton
-              key={i}
-              value={level}
-              selectedlevel={selectedLevel}
-              onClick={handleLevelBtnClick}
-            >
-              {level}
-            </LevelButton>
-          ))}
-        </LevelSelector>
-        <ResetButton onClick={handleResetClick}>Reset</ResetButton>
-      </Header>
+      <Header
+        levels={levels}
+        selectedLevel={selectedLevel}
+        onLevelBtnClick={handleLevelBtnClick}
+        onResetClick={handleResetClick}
+      />
       <Game
         level={selectedLevel}
         handleFinish={handleFinish}

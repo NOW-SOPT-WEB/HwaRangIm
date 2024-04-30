@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { CARD_LIST } from "../../constants/card";
 import Card from "../Card/Card";
 import { GameWrapper, ScoreWrapper } from "./Game.styled";
@@ -17,11 +17,8 @@ export default function Game({
   useEffect(() => {
     setTotalPairs(calculateTotalPairs(level));
     setMatchedScore(0);
-  }, [level]);
-
-  useEffect(() => {
     setCards(generateCards());
-  }, [totalPairs]);
+  }, [level, totalPairs]);
 
   useEffect(() => {
     if (matchedScore === totalPairs) {
@@ -48,8 +45,7 @@ export default function Game({
     }
   };
 
-  const generateCards = () => {
-    //이미지 9개중 랜덤으로 totalPairs만큼 가져옴
+  const generateCards = useCallback(() => {
     const selectedImages = CARD_LIST.sort((a, b) => 0.5 - Math.random()).slice(
       0,
       totalPairs
@@ -69,7 +65,7 @@ export default function Game({
       isMatched: false,
     }));
     return shuffledcards;
-  };
+  }, [totalPairs]);
 
   const handleCardClick = (id) => {
     const selected = cards.find((card) => card.id === id);
@@ -111,7 +107,6 @@ export default function Game({
       }
     }
   };
-
   return (
     <GameWrapper>
       <ScoreWrapper>{`${matchedScore} / ${totalPairs}`}</ScoreWrapper>
