@@ -5,9 +5,9 @@ import {
   ResetButton,
   HeaderWrapper,
 } from "./Header.styled";
+import { LEVEL } from "../../constants/level";
 
 export default function Header({
-  levels,
   selectedLevel,
   onLevelBtnClick,
   onResetClick,
@@ -16,7 +16,7 @@ export default function Header({
     <HeaderWrapper>
       <Title>신발 그림 맞추기</Title>
       <LevelSelector>
-        {levels.map((level, i) => (
+        {Object.values(LEVEL).map((level, i) => (
           <LevelButton
             key={i}
             value={level}

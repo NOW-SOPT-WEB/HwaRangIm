@@ -1,12 +1,13 @@
 import { useState } from "react";
 import { CardGameWrapper, ModalBackground } from "./CardGame.styled";
+import { LEVEL } from "../../constants/level";
 import Game from "../Game/Game";
 import Modal from "../Modal/Modal";
 import Header from "../Header/Header";
 
 export default function CardGame() {
-  const levels = ["easy", "normal", "hard"];
-  const [selectedLevel, setSelectedLevel] = useState("easy");
+  // const levels = ["easy", "normal", "hard"];
+  const [selectedLevel, setSelectedLevel] = useState(LEVEL.EASY);
   const [isFinished, setIsFinished] = useState(false);
   const [resetClicked, setResetClicked] = useState(false);
 
@@ -31,7 +32,6 @@ export default function CardGame() {
         </ModalBackground>
       )}
       <Header
-        levels={levels}
         selectedLevel={selectedLevel}
         onLevelBtnClick={handleLevelBtnClick}
         onResetClick={handleResetClick}

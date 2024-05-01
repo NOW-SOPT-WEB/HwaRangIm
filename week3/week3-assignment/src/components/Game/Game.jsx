@@ -2,6 +2,7 @@ import { useCallback, useEffect, useState } from "react";
 import { CARD_LIST } from "../../constants/card";
 import Card from "../Card/Card";
 import { GameWrapper, ScoreWrapper } from "./Game.styled";
+import { calculateTotalPairs } from "../../util/calculateTotalPairs";
 
 export default function Game({
   level,
@@ -32,18 +33,18 @@ export default function Game({
     afterCardReset();
   }, [resetClicked]);
 
-  const calculateTotalPairs = (level) => {
-    switch (level) {
-      case "easy":
-        return 5;
-      case "normal":
-        return 7;
-      case "hard":
-        return 9;
-      default:
-        return 5;
-    }
-  };
+  // const calculateTotalPairs = (level) => {
+  //   switch (level) {
+  //     case LEVEL.EASY:
+  //       return 5;
+  //     case LEVEL.NORMAL:
+  //       return 7;
+  //     case LEVEL.HARD:
+  //       return 9;
+  //     default:
+  //       return 5;
+  //   }
+  // };
 
   const generateCards = useCallback(() => {
     const selectedImages = CARD_LIST.sort((a, b) => 0.5 - Math.random()).slice(
