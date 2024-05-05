@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useMemo, useEffect, useState } from "react";
 import { CARD_LIST } from "../../constants/card";
 import Card from "../Card/Card";
 import { GameWrapper, ScoreWrapper } from "./Game.styled";
@@ -18,7 +18,7 @@ export default function Game({
   useEffect(() => {
     setTotalPairs(calculateTotalPairs(level));
     setMatchedScore(0);
-    setCards(generateCards());
+    setCards(generateCards);
   }, [level, totalPairs]);
 
   useEffect(() => {
@@ -28,36 +28,21 @@ export default function Game({
   }, [matchedScore]);
 
   useEffect(() => {
-    setCards(generateCards());
+    setCards(generateCards);
     setMatchedScore(0);
     afterCardReset();
   }, [resetClicked]);
 
-  // const calculateTotalPairs = (level) => {
-  //   switch (level) {
-  //     case LEVEL.EASY:
-  //       return 5;
-  //     case LEVEL.NORMAL:
-  //       return 7;
-  //     case LEVEL.HARD:
-  //       return 9;
-  //     default:
-  //       return 5;
-  //   }
-  // };
-
-  const generateCards = useCallback(() => {
+  const generateCards = useMemo(() => {
     const selectedImages = CARD_LIST.sort((a, b) => 0.5 - Math.random()).slice(
       0,
       totalPairs
     );
 
-    //카드 두배로 늘리고 랜덤정렬
     let shuffledcards = [...selectedImages, ...selectedImages].sort(
       (a, b) => 0.5 - Math.random()
     );
 
-    //랜덤정렬된 카드마다 객체로 만들어서 속성 추가
     shuffledcards = shuffledcards.map((image, index) => ({
       id: index,
       imgSrc: image.imgSrc,
@@ -68,9 +53,8 @@ export default function Game({
     return shuffledcards;
   }, [totalPairs]);
 
-  const handleCardClick = useCallback((id) => {
+  const handleCardClick = (id) => {
     const selected = cards.find((card) => card.id === id);
-    console.log(selected);
     if (!selected.isOpen && !selected.isMatched) {
       //첫번째 카드 선택
       if (selectedCard === null) {
@@ -79,7 +63,6 @@ export default function Game({
           card.id === id ? { ...card, isOpen: true } : card
         );
         setCards(updatedCards);
-        console.log(updatedCards);
       }
       //두번째 카드 선택
       else {
@@ -109,48 +92,7 @@ export default function Game({
         }
       }
     }
-  }, []);
-
-  // const handleCardClick = (id) => {
-  //   const selected = cards.find((card) => card.id === id);
-  //   if (!selected.isOpen && !selected.isMatched) {
-  //     //첫번째 카드 선택
-  //     if (selectedCard === null) {
-  //       setSelectedCard(selected);
-  //       const updatedCards = cards.map((card) =>
-  //         card.id === id ? { ...card, isOpen: true } : card
-  //       );
-  //       setCards(updatedCards);
-  //     }
-  //     //두번째 카드 선택
-  //     else {
-  //       const updatedCards = cards.map((card) =>
-  //         card.id === id ? { ...card, isOpen: true } : card
-  //       );
-  //       setCards(updatedCards);
-  //       if (selectedCard.imgSrc === selected.imgSrc) {
-  //         setTimeout(() => {
-  //           const matchedCards = updatedCards.map((card) =>
-  //             card.imgSrc === selected.imgSrc
-  //               ? { ...card, isMatched: true }
-  //               : card
-  //           );
-  //           setCards(matchedCards);
-  //           setSelectedCard(null);
-  //           setMatchedScore((prev) => prev + 1);
-  //         }, 500);
-  //       } else {
-  //         setTimeout(() => {
-  //           const resetCards = updatedCards.map((card) =>
-  //             card.isOpen ? { ...card, isOpen: false } : card
-  //           );
-  //           setCards(resetCards);
-  //           setSelectedCard(null);
-  //         }, 500);
-  //       }
-  //     }
-  //   }
-  // };
+  };
 
   return (
     <GameWrapper>

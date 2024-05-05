@@ -6,7 +6,6 @@ import Modal from "../Modal/Modal";
 import Header from "../Header/Header";
 
 export default function CardGame() {
-  // const levels = ["easy", "normal", "hard"];
   const [selectedLevel, setSelectedLevel] = useState(LEVEL.EASY);
   const [isFinished, setIsFinished] = useState(false);
   const [resetClicked, setResetClicked] = useState(false);
