@@ -1,4 +1,4 @@
-import { useMemo, useEffect, useState } from "react";
+import { useMemo, useEffect, useState, useCallback } from "react";
 import { CARD_LIST } from "../../constants/card";
 import Card from "../Card/Card";
 import { GameWrapper, ScoreWrapper } from "./Game.styled";
@@ -51,48 +51,91 @@ export default function Game({
       isMatched: false,
     }));
     return shuffledcards;
-  }, [totalPairs]);
+  }, [totalPairs, resetClicked]);
 
-  const handleCardClick = (id) => {
-    const selected = cards.find((card) => card.id === id);
-    if (!selected.isOpen && !selected.isMatched) {
-      //첫번째 카드 선택
+  // const handleCardClick = (id) => {
+  //   const selected = cards.find((card) => card.id === id);
+  //   if (!selected.isOpen && !selected.isMatched) {
+  //     //첫번째 카드 선택
+  //     if (selectedCard === null) {
+  //       setSelectedCard(selected);
+  //       const updatedCards = cards.map((card) =>
+  //         card.id === id ? { ...card, isOpen: true } : card
+  //       );
+  //       setCards(updatedCards);
+  //     }
+  //     //두번째 카드 선택
+  //     else {
+  //       const updatedCards = cards.map((card) =>
+  //         card.id === id ? { ...card, isOpen: true } : card
+  //       );
+  //       setCards(updatedCards);
+  //       if (selectedCard.imgSrc === selected.imgSrc) {
+  //         setTimeout(() => {
+  //           const matchedCards = updatedCards.map((card) =>
+  //             card.imgSrc === selected.imgSrc
+  //               ? { ...card, isMatched: true }
+  //               : card
+  //           );
+  //           setCards(matchedCards);
+  //           setSelectedCard(null);
+  //           setMatchedScore((prev) => prev + 1);
+  //         }, 500);
+  //       } else {
+  //         setTimeout(() => {
+  //           const resetCards = updatedCards.map((card) =>
+  //             card.isOpen ? { ...card, isOpen: false } : card
+  //           );
+  //           setCards(resetCards);
+  //           setSelectedCard(null);
+  //         }, 500);
+  //       }
+  //     }
+  //   }
+  // };
+  const handleCardClick = useCallback(
+    (id) => {
+      const selected = cards.find((card) => card.id === id);
+      console.log("실행됨");
+
+      if (selected.isOpen || selected.isMatched) {
+        return;
+      }
+
+      const flipCard = (cardsToUpdate) => {
+        const updatedCards = cardsToUpdate.map((card) =>
+          card.id === id ? { ...card, isOpen: true } : card
+        );
+        setCards(updatedCards);
+        return updatedCards;
+      };
+
+      // 첫번째 카드 선택
       if (selectedCard === null) {
         setSelectedCard(selected);
-        const updatedCards = cards.map((card) =>
-          card.id === id ? { ...card, isOpen: true } : card
-        );
-        setCards(updatedCards);
+        flipCard(cards);
       }
-      //두번째 카드 선택
+      // 두번째 카드 선택
       else {
-        const updatedCards = cards.map((card) =>
-          card.id === id ? { ...card, isOpen: true } : card
-        );
-        setCards(updatedCards);
-        if (selectedCard.imgSrc === selected.imgSrc) {
-          setTimeout(() => {
-            const matchedCards = updatedCards.map((card) =>
-              card.imgSrc === selected.imgSrc
-                ? { ...card, isMatched: true }
-                : card
-            );
-            setCards(matchedCards);
-            setSelectedCard(null);
-            setMatchedScore((prev) => prev + 1);
-          }, 500);
-        } else {
-          setTimeout(() => {
-            const resetCards = updatedCards.map((card) =>
-              card.isOpen ? { ...card, isOpen: false } : card
-            );
-            setCards(resetCards);
-            setSelectedCard(null);
-          }, 500);
-        }
+        flipCard(cards);
+
+        setTimeout(() => {
+          const isMatch = selectedCard.imgSrc === selected.imgSrc;
+
+          const updatedCards = cards.map((card) =>
+            card.imgSrc === selected.imgSrc
+              ? { ...card, isMatched: isMatch }
+              : { ...card, isOpen: false }
+          );
+
+          setCards(updatedCards);
+          setSelectedCard(null);
+          setMatchedScore((prev) => prev + (isMatch ? 1 : 0));
+        }, 500);
       }
-    }
-  };
+    },
+    [cards, selectedCard, matchedScore]
+  );
 
   return (
     <GameWrapper>
