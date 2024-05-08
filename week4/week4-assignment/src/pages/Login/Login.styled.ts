@@ -16,7 +16,7 @@ export const LoginBox = styled.div`
   align-items: center;
   gap: 1rem;
   width: 40%;
-  height: 60%;
+  height: 70%;
   background-color: ${({ theme }) => theme.colors.FormBack};
 `;
 

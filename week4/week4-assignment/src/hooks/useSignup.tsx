@@ -24,13 +24,6 @@ const useSignup = () => {
 
   const handleSignup = async () => {
     try {
-      //   const data = {
-      //     id: formInfo.id,
-      //     pw: formInfo.pw,
-      //     nickname: formInfo.nickname,
-      //     phone: formInfo.phone,
-      //   };
-
       const response = await axios.post(
         `${import.meta.env.VITE_APP_BASE_URL}/member/join`,
         {
@@ -42,10 +35,8 @@ const useSignup = () => {
       );
 
       console.log(response);
-
-      //   const responseData = await response.json();
     } catch (error) {
-      console.log(error);
+      alert(error.response.data.message);
     }
   };
 

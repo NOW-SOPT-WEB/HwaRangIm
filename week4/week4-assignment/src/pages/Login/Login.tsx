@@ -5,23 +5,30 @@ import FormTitle from "../../components/@common/FormTitle/FormTitle";
 import FormInput from "../../components/@common/FormInput/FormInput";
 import RoutingBtn from "../../components/@common/RoutingBtn/RoutingBtn";
 import FnBtn from "../../components/@common/FnBtn/FnBtn";
+import useLogin from "../../hooks/useLogin";
 
 const Login = () => {
-  const handleLogin = () => {
-    console.log("click login");
-  };
-
+  const { handleIdChange, handlePwChange, handleLogin } = useLogin();
   return (
     <S.LoginPageWrapper>
       <S.LoginBox>
         <S.LoginHeader>
           <FormTitle>Login</FormTitle>
-          {/* <img src={img} width="200px" /> */}
         </S.LoginHeader>
         <img src={img} width="150px" />
         <S.FormBox>
-          <FormInput labelText="ID" inputType="text" id="id" />
-          <FormInput labelText="PW" inputType="password" id="pw" />
+          <FormInput
+            labelText="ID"
+            inputType="text"
+            id="id"
+            onChange={handleIdChange}
+          />
+          <FormInput
+            labelText="PW"
+            inputType="password"
+            id="pw"
+            onChange={handlePwChange}
+          />
         </S.FormBox>
         <S.ButtonsContainer>
           <FnBtn onClick={handleLogin}>로그인</FnBtn>
