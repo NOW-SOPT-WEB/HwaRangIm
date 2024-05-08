@@ -14,10 +14,15 @@ const Login = () => {
   return (
     <S.LoginPageWrapper>
       <S.LoginBox>
-        <FormTitle>Login</FormTitle>
-        <img src={img} width="200px" />
-        <FormInput labelText="ID" inputType="text" />
-        <FormInput labelText="PW" inputType="password" />
+        <S.LoginHeader>
+          <FormTitle>Login</FormTitle>
+          {/* <img src={img} width="200px" /> */}
+        </S.LoginHeader>
+        <img src={img} width="150px" />
+        <S.FormBox>
+          <FormInput labelText="ID" inputType="text" id="id" />
+          <FormInput labelText="PW" inputType="password" id="pw" />
+        </S.FormBox>
         <S.ButtonsContainer>
           <FnBtn onClick={handleLogin}>로그인</FnBtn>
           <RoutingBtn route="signup" btnText="회원가입" />

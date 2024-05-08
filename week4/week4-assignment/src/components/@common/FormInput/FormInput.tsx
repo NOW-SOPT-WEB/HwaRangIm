@@ -1,11 +1,23 @@
 import React from "react";
 import * as S from "./FormInput.styled";
 
-const FormInput = ({ labelText, inputType }) => {
+interface FormInputPropTypes {
+  labelText: string;
+  inputType: string;
+  id: string;
+  onChange?: () => void;
+}
+
+const FormInput = ({
+  labelText,
+  inputType,
+  id,
+  onChange,
+}: FormInputPropTypes) => {
   return (
     <S.InputWrapper>
-      <label>{labelText}</label>
-      <S.InputBox type={inputType} />
+      <S.InputLabel htmlFor={id}>{labelText}</S.InputLabel>
+      <S.InputBox type={inputType} id={id} onChange={onChange} />
     </S.InputWrapper>
   );
 };
