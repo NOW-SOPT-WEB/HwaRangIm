@@ -6,6 +6,7 @@ interface FormInputPropTypes {
   inputType: string;
   id: string;
   onChange?: () => void;
+  autoFocus?: boolean;
 }
 
 const FormInput = ({
@@ -13,12 +14,19 @@ const FormInput = ({
   inputType,
   id,
   onChange,
+  autoFocus,
 }: FormInputPropTypes) => {
   return (
     <S.InputWrapper>
       <S.InputLabel htmlFor={id}>{labelText}</S.InputLabel>
-      <S.InputBox type={inputType} id={id} onChange={onChange} />
+      <S.InputBox
+        type={inputType}
+        id={id}
+        onChange={onChange}
+        autoFocus={autoFocus}
+      />
     </S.InputWrapper>
   );
 };
+
 export default FormInput;

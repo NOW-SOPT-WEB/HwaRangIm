@@ -27,6 +27,7 @@ const SignUp = () => {
             labelText="ID"
             inputType="text"
             id="id"
+            autoFocus
             onChange={handleIdChange}
           />
           <FormInput
