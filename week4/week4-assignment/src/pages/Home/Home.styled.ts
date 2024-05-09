@@ -5,8 +5,10 @@ export const HomePageWrapper = styled.div`
   height: 100dvh;
   background-color: ${({ theme }) => theme.colors.MainBack};
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 2rem;
 `;
 
 export const HomePageHeader = styled.header`

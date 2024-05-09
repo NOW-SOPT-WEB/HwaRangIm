@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const useSignup = () => {
   const [formInfo, setFormInfo] = useState({
@@ -8,6 +9,7 @@ const useSignup = () => {
     nickname: "",
     phone: "",
   });
+  const navigate = useNavigate();
 
   const handleIdChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormInfo({ ...formInfo, id: e.target.value });
@@ -24,6 +26,7 @@ const useSignup = () => {
 
   const handleSignup = async () => {
     try {
+      let memberId: string | null = null;
       const response = await axios.post(
         `${import.meta.env.VITE_APP_BASE_URL}/member/join`,
         {
@@ -33,8 +36,9 @@ const useSignup = () => {
           phone: formInfo.phone,
         }
       );
-
-      console.log(response);
+      alert(response.data.message);
+      memberId = response.headers.location;
+      navigate(`/main/${memberId}`);
     } catch (error) {
       alert(error.response.data.message);
     }
