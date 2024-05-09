@@ -16,7 +16,7 @@ export const SignUpBox = styled.div`
   align-items: center;
   width: 45%;
   height: 75%;
-  background-color: ${({ theme }) => theme.colors.FormBack};
+  background-color: ${({ theme }) => theme.colors.LightPurple};
 `;
 
 export const SignUpHeader = styled.header`

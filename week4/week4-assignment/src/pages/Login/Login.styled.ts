@@ -17,7 +17,7 @@ export const LoginBox = styled.div`
   gap: 1rem;
   width: 40%;
   height: 70%;
-  background-color: ${({ theme }) => theme.colors.FormBack};
+  background-color: ${({ theme }) => theme.colors.LightPurple};
 `;
 
 export const LoginHeader = styled.header`

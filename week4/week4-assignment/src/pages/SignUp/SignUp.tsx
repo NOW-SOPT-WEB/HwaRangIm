@@ -1,6 +1,5 @@
 import React from "react";
 import * as S from "./SignUp.styled";
-import { SignUpPageWrapper } from "./SignUp.styled";
 import RoutingBtn from "../../components/@common/RoutingBtn/RoutingBtn";
 import FormTitle from "../../components/@common/FormTitle/FormTitle";
 import FormInput from "../../components/@common/FormInput/FormInput";

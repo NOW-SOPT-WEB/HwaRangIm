@@ -15,7 +15,7 @@ const Login = () => {
         <S.LoginHeader>
           <FormTitle>Login</FormTitle>
         </S.LoginHeader>
-        <img src={img} width="150px" />
+        <img src={img} alt="새싹이미지" width="150px" />
         <S.FormBox>
           <FormInput
             labelText="ID"

@@ -1,6 +1,6 @@
 const colors = {
   MainBack: "#fffacd",
-  FormBack: "#fcd7fc",
+  LightPurple: "#fcd7fc",
   Btn: "#2e8244",
   White: "#fff",
 };
