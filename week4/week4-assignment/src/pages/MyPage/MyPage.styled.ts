@@ -12,31 +12,30 @@ export const MyPageWrapper = styled.div`
 export const MyPageBox = styled.div`
   display: flex;
   flex-direction: column;
-  /* justify-content: space-between; */
+  justify-content: space-between;
   align-items: center;
   width: 45%;
-  height: 80%;
+  height: 65%;
   background-color: ${({ theme }) => theme.colors.LightPurple};
+  padding: 1.5rem 0;
 `;
 
 export const MyPageBoxHeader = styled.header`
   width: 100%;
-  padding: 1rem;
   text-align: center;
   font-size: 2rem;
-  background-color: pink;
 `;
 
 export const MyPageBoxInfo = styled.div`
   width: 70%;
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 2rem;
-  background-color: pink;
 `;
 
 export const MyPageBoxInfoDetail = styled.div`
-  width: 100%;
+  width: 80%;
   display: flex;
 
   & div:first-child {
@@ -48,8 +47,10 @@ export const PasswordChange = styled.div`
   width: 70%;
   display: flex;
   flex-direction: column;
-  background-color: pink;
+  align-items: center;
+  gap: 1rem;
 `;
 export const PwChangeToggle = styled.button`
-  color: ${({ theme }) => theme.colors.White};
+  color: darkblue;
+  font-size: 1.1rem;
 `;

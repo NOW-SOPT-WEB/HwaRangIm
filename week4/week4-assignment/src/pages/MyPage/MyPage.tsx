@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import * as S from "./MyPage.styled";
 import useMypage from "../../hooks/useMypage";
 import { useParams } from "react-router-dom";
@@ -7,6 +7,7 @@ import FnBtn from "../../components/@common/FnBtn/FnBtn";
 import RoutingBtn from "../../components/@common/RoutingBtn/RoutingBtn";
 
 const MyPage = () => {
+  const [isToggleOpen, setIsToggleOpen] = useState(false);
   const {
     myInfo,
     getMyPageInfo,
@@ -23,6 +24,10 @@ const MyPage = () => {
 
   const handleChangePwClick = () => {
     handleChangePw(params.memberId);
+  };
+
+  const handleToggleClick = () => {
+    setIsToggleOpen(!isToggleOpen);
   };
 
   return (
@@ -44,26 +49,39 @@ const MyPage = () => {
           </S.MyPageBoxInfoDetail>
         </S.MyPageBoxInfo>
         <S.PasswordChange>
-          <S.PwChangeToggle>비밀번호 변경</S.PwChangeToggle>
-          <FormInput
-            labelText="기존 비밀번호"
-            inputType="text"
-            id="previousPw"
-            onChange={handlePreviousPassword}
-          />
-          <FormInput
-            labelText="새로운 비밀번호"
-            inputType="text"
-            id="newPw"
-            onChange={handleNewPassword}
-          />
-          <FormInput
-            labelText="비밀번호 확인"
-            inputType="text"
-            id="newPwV"
-            onChange={handleNewPasswordVerification}
-          />
-          <FnBtn onClick={handleChangePwClick}>비밀번호 변경</FnBtn>
+          <S.PwChangeToggle onClick={handleToggleClick}>
+            비밀번호 변경 {isToggleOpen ? "🔺" : "🔻"}
+          </S.PwChangeToggle>
+          <div
+            style={{
+              visibility: isToggleOpen ? "visible" : "hidden",
+              width: "80%",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              gap: "1rem",
+            }}
+          >
+            <FormInput
+              labelText="기존 비밀번호"
+              inputType="text"
+              id="previousPw"
+              onChange={handlePreviousPassword}
+            />
+            <FormInput
+              labelText="새로운 비밀번호"
+              inputType="text"
+              id="newPw"
+              onChange={handleNewPassword}
+            />
+            <FormInput
+              labelText="비밀번호 확인"
+              inputType="text"
+              id="newPwV"
+              onChange={handleNewPasswordVerification}
+            />
+            <FnBtn onClick={handleChangePwClick}>비밀번호 변경 </FnBtn>
+          </div>
         </S.PasswordChange>
         <RoutingBtn route={`main/${params.memberId}`} btnText="홈으로" />
       </S.MyPageBox>
