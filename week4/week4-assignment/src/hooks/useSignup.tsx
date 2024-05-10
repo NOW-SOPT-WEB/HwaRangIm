@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { INPUTEMPTY } from "../constants/inputEmptyComment";
+import { validatePassword } from "../utils/validatePw";
 
 const useSignup = () => {
   const [formInfo, setFormInfo] = useState({
@@ -50,6 +51,10 @@ const useSignup = () => {
     }
     if (!pw) {
       setPwErrMessage(INPUTEMPTY.PW);
+      return;
+    }
+    if (!validatePassword(pw)) {
+      alert(INPUTEMPTY.PWERR);
       return;
     }
     if (!nickname) {
