@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const MyPageWrapper = styled.div`
   width: 100dvw;
@@ -7,7 +7,7 @@ export const MyPageWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-`;
+`
 
 export const MyPageBox = styled.div`
   display: flex;
@@ -15,16 +15,16 @@ export const MyPageBox = styled.div`
   justify-content: space-between;
   align-items: center;
   width: 45%;
-  height: 65%;
+  height: 80%;
   background-color: ${({ theme }) => theme.colors.LightPurple};
   padding: 1.5rem 0;
-`;
+`
 
 export const MyPageBoxHeader = styled.header`
   width: 100%;
   text-align: center;
   font-size: 2rem;
-`;
+`
 
 export const MyPageBoxInfo = styled.div`
   width: 70%;
@@ -32,7 +32,7 @@ export const MyPageBoxInfo = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 2rem;
-`;
+`
 
 export const MyPageBoxInfoDetail = styled.div`
   width: 80%;
@@ -41,7 +41,7 @@ export const MyPageBoxInfoDetail = styled.div`
   & div:first-child {
     width: 50%;
   }
-`;
+`
 
 export const PasswordChange = styled.div`
   width: 70%;
@@ -49,8 +49,11 @@ export const PasswordChange = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 1rem;
-`;
+`
 export const PwChangeToggle = styled.button`
   color: darkblue;
   font-size: 1.1rem;
-`;
+`
+export const ErrorMessage = styled.div`
+  color: red;
+`

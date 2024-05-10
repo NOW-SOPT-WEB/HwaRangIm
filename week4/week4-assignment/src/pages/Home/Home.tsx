@@ -10,7 +10,7 @@ const Home = () => {
 
   return (
     <S.HomePageWrapper>
-      <S.HomePageHeader>새싹웹팟과 만난지 35일째</S.HomePageHeader>
+      <S.HomePageHeader>4주차 과제중~ing</S.HomePageHeader>
       <ReactPlayer url={video} controls playing />
       <S.ButtonsContainer>
         <RoutingBtn route={`mypage/${params.memberId}`} btnText="내 정보" />
