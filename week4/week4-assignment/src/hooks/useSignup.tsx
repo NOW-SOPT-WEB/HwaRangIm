@@ -29,20 +29,16 @@ const useSignup = () => {
     setNErrMessage("");
   };
   const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    console.log(
-      e.target.value
-        .replace(/[^0-9]/g, "")
-        .replace(/^(\d{0,3})(\d{0,4})(\d{0,4})$/g, "$1-$2-$3")
-        .replace(/(\-{1,2})$/g, "")
-    );
+    const formattedPhoneNumber = e.target.value
+      .replace(/[^0-9]/g, "")
+      .replace(/^(\d{0,3})(\d{0,4})(\d{0,4})$/, "$1-$2-$3")
+      .replace(/(\-{1,2})$/g, "");
 
     setFormInfo({
       ...formInfo,
-      phone: e.target.value
-        .replace(/[^0-9]/g, "")
-        .replace(/^(\d{0,3})(\d{0,4})(\d{0,4})$/g, "$1-$2-$3")
-        .replace(/(\-{1,2})$/g, ""),
+      phone: formattedPhoneNumber,
     });
+    console.log(formInfo.phone);
     setPhoneErrMessage("");
   };
 
@@ -84,6 +80,7 @@ const useSignup = () => {
   };
 
   return {
+    formInfo,
     idErrMessage,
     pwErrMessage,
     nErrMessage,

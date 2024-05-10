@@ -4,6 +4,7 @@ interface FormInputPropTypes {
   labelText: string;
   inputType: string;
   id: string;
+  value: string | number;
   onChange?: () => void;
   autoFocus?: boolean;
   isInputEmpty?: boolean;
@@ -13,6 +14,7 @@ const FormInput = ({
   labelText,
   inputType,
   id,
+  value,
   onChange,
   autoFocus,
   isInputEmpty,
@@ -23,6 +25,7 @@ const FormInput = ({
       <S.InputBox
         type={inputType}
         id={id}
+        value={value}
         onChange={onChange}
         autoFocus={autoFocus}
         isInputEmpty={isInputEmpty}
