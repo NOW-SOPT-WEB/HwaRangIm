@@ -45,6 +45,7 @@ const useSignup = () => {
   };
 
   return {
+    formInfo,
     handleIdChange,
     handlePwChange,
     handleNicknameChange,

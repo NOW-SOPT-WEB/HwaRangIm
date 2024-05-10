@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import * as S from "./SignUp.styled";
 import RoutingBtn from "../../components/@common/RoutingBtn/RoutingBtn";
 import FormTitle from "../../components/@common/FormTitle/FormTitle";
@@ -9,6 +9,7 @@ import { VERIFYCOMMENT } from "../../constants/verifyComment";
 
 const SignUp = () => {
   const {
+    formInfo,
     handleIdChange,
     handlePwChange,
     handleNicknameChange,
@@ -16,6 +17,8 @@ const SignUp = () => {
     handleSignup,
   } = useSignup();
 
+
+  console.log(formInfo);
   return (
     <S.SignUpPageWrapper>
       <S.SignUpBox>

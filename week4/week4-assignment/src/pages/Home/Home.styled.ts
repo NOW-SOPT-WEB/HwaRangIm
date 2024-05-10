@@ -22,7 +22,7 @@ export const HomePageHeader = styled.header`
   font-size: 3rem;
 `;
 
-export const HomePageImg = styled.img`
+export const HomePageVideo = styled.video`
   width: 50%;
 `;
 

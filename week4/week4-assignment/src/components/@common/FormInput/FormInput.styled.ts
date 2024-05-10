@@ -9,9 +9,10 @@ export const InputWrapper = styled.div`
 export const InputLabel = styled.label`
   font-weight: bold;
 `;
-export const InputBox = styled.input`
+export const InputBox = styled.input<{ onFocusEmpty?: boolean }>`
   width: 70%;
   height: 2.5rem;
   padding: 0.5rem 1rem;
   border-radius: 5px;
+  outline-color: red;
 `;
