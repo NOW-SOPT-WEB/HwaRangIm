@@ -32,7 +32,7 @@ export const FormBox = styled.div`
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  gap: 1.5rem;
+  gap: 1rem;
 `;
 
 export const ButtonsContainer = styled.div`
@@ -49,4 +49,8 @@ export const InputVerify = styled.div`
   font-size: 0.8rem;
   letter-spacing: -0.08rem;
   color: ${({ theme }) => theme.colors.Blue};
+`;
+
+export const ErrorMessage = styled.div`
+  color: red;
 `;

@@ -8,7 +8,14 @@ import FnBtn from "../../components/@common/FnBtn/FnBtn";
 import useLogin from "../../hooks/useLogin";
 
 const Login = () => {
-  const { handleIdChange, handlePwChange, handleLogin } = useLogin();
+  const {
+    idErrMessage,
+    pwErrMessage,
+    handleIdChange,
+    handlePwChange,
+    handleLogin,
+  } = useLogin();
+
   return (
     <S.LoginPageWrapper>
       <S.LoginBox>
@@ -24,12 +31,14 @@ const Login = () => {
             autoFocus
             onChange={handleIdChange}
           />
+          <S.ErrorMessage>{idErrMessage ? idErrMessage : ""}</S.ErrorMessage>
           <FormInput
             labelText="PW"
             inputType="password"
             id="pw"
             onChange={handlePwChange}
           />
+          <S.ErrorMessage>{pwErrMessage ? pwErrMessage : ""}</S.ErrorMessage>
         </S.FormBox>
         <S.ButtonsContainer>
           <FnBtn onClick={handleLogin}>로그인</FnBtn>

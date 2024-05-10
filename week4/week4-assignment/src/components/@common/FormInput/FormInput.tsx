@@ -6,6 +6,7 @@ interface FormInputPropTypes {
   id: string;
   onChange?: () => void;
   autoFocus?: boolean;
+  isInputEmpty?: boolean;
 }
 
 const FormInput = ({
@@ -14,6 +15,7 @@ const FormInput = ({
   id,
   onChange,
   autoFocus,
+  isInputEmpty,
 }: FormInputPropTypes) => {
   return (
     <S.InputWrapper>
@@ -23,6 +25,7 @@ const FormInput = ({
         id={id}
         onChange={onChange}
         autoFocus={autoFocus}
+        isInputEmpty={isInputEmpty}
       />
     </S.InputWrapper>
   );

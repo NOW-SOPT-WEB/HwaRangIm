@@ -9,16 +9,17 @@ import { VERIFYCOMMENT } from "../../constants/verifyComment";
 
 const SignUp = () => {
   const {
-    formInfo,
+    idErrMessage,
+    pwErrMessage,
+    nErrMessage,
+    phoneErrMessage,
     handleIdChange,
     handlePwChange,
     handleNicknameChange,
     handlePhoneChange,
     handleSignup,
   } = useSignup();
-
-
-  console.log(formInfo);
+  console.log(!!idErrMessage);
   return (
     <S.SignUpPageWrapper>
       <S.SignUpBox>
@@ -32,13 +33,16 @@ const SignUp = () => {
             id="id"
             autoFocus
             onChange={handleIdChange}
+            isInputEmpty={!!idErrMessage}
           />
+          <S.ErrorMessage>{idErrMessage ? idErrMessage : ""}</S.ErrorMessage>
           <FormInput
             labelText="비밀번호"
             inputType="password"
             id="pw"
             onChange={handlePwChange}
           />
+          <S.ErrorMessage>{pwErrMessage}</S.ErrorMessage>
           <S.InputVerify>{VERIFYCOMMENT.PW}</S.InputVerify>
           <FormInput
             labelText="닉네임"
@@ -46,12 +50,14 @@ const SignUp = () => {
             id="nickname"
             onChange={handleNicknameChange}
           />
+          <S.ErrorMessage>{nErrMessage}</S.ErrorMessage>
           <FormInput
             labelText="전화번호"
             inputType="text"
             id="pn"
             onChange={handlePhoneChange}
           />
+          <S.ErrorMessage>{phoneErrMessage}</S.ErrorMessage>
           <S.InputVerify>{VERIFYCOMMENT.PHONE}</S.InputVerify>
         </S.FormBox>
         <S.ButtonsContainer>

@@ -34,7 +34,7 @@ export const FormBox = styled.div`
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  gap: 2rem;
+  gap: 1.3rem;
 `;
 
 export const ButtonsContainer = styled.div`
@@ -42,4 +42,8 @@ export const ButtonsContainer = styled.div`
   justify-content: space-between;
   padding: 2rem;
   gap: 2rem;
+`;
+
+export const ErrorMessage = styled.div`
+  color: red;
 `;
