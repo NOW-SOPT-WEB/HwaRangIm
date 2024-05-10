@@ -10,7 +10,7 @@ export const InputLabel = styled.label`
   font-weight: bold;
 `;
 export const InputBox = styled.input`
-  width: 55%;
+  width: 70%;
   height: 2.5rem;
   padding: 0.5rem 1rem;
   border-radius: 5px;

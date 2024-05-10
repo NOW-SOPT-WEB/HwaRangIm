@@ -3,6 +3,7 @@ const colors = {
   LightPurple: "#fcd7fc",
   Btn: "#2e8244",
   White: "#fff",
+  Blue: "#3250a8",
 };
 
 const theme = {

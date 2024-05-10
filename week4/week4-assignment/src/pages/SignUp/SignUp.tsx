@@ -5,6 +5,7 @@ import FormTitle from "../../components/@common/FormTitle/FormTitle";
 import FormInput from "../../components/@common/FormInput/FormInput";
 import FnBtn from "../../components/@common/FnBtn/FnBtn";
 import useSignup from "../../hooks/useSignup";
+import { VERIFYCOMMENT } from "../../constants/verifyComment";
 
 const SignUp = () => {
   const {
@@ -35,6 +36,7 @@ const SignUp = () => {
             id="pw"
             onChange={handlePwChange}
           />
+          <S.InputVerify>{VERIFYCOMMENT.PW}</S.InputVerify>
           <FormInput
             labelText="닉네임"
             inputType="text"
@@ -47,6 +49,7 @@ const SignUp = () => {
             id="pn"
             onChange={handlePhoneChange}
           />
+          <S.InputVerify>{VERIFYCOMMENT.PHONE}</S.InputVerify>
         </S.FormBox>
         <S.ButtonsContainer>
           <FnBtn onClick={handleSignup}>회원가입</FnBtn>

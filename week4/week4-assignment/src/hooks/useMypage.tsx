@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 interface MyInfoPropTypes {
   authenticationId: string;
@@ -25,6 +26,8 @@ const useMypage = () => {
     newPassword: "",
     newPasswordVerification: "",
   });
+
+  const navigate = useNavigate();
 
   const getMyPageInfo = async (memberId: number) => {
     try {
@@ -54,21 +57,30 @@ const useMypage = () => {
   };
 
   const handleChangePw = async (memberId: number) => {
+    const { previousPassword, newPassword, newPasswordVerification } = pwChange;
+
+    // 값이 비어 있는지 확인
+    if (!previousPassword || !newPassword || !newPasswordVerification) {
+      alert("모든 필드를 입력해주세요.");
+      return;
+    }
+
     try {
       const response = await axios.patch(
         `${import.meta.env.VITE_APP_BASE_URL}/member/password`,
         {
-          previousPassword: pwChange.previousPassword,
-          newPassword: pwChange.newPassword,
-          newPasswordVerification: pwChange.newPasswordVerification,
+          previousPassword,
+          newPassword,
+          newPasswordVerification,
         },
         {
           headers: { memberId: memberId },
         }
       );
       alert(response.data.message);
+      navigate("/");
     } catch (error) {
-        alert(error.response.data.message);
+      alert(error.response.data.message);
     }
   };
 
